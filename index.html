@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="theme-color" content="#1e40af">
-    <title>Barış Satranç Akademisi v11 (Final)</title>
+    <title>Barış Satranç Akademisi v12 (Final)</title>
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -118,10 +118,23 @@
         @keyframes flashGreen { 0%,100% { background: none; } 50% { background: #4ade80 !important; } }
         @keyframes flashRed { 0%,100% { background: none; } 50% { background: #ef4444 !important; } }
 
-        /* Marquee */
-        .marquee-container { overflow: hidden; white-space: nowrap; position: relative; }
-        .marquee-content { display: inline-block; animation: marquee 30s linear infinite; white-space: nowrap; }
-        @keyframes marquee { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
+        /* Marquee - Enhanced for all devices */
+        .marquee-container { 
+            overflow: hidden; 
+            white-space: nowrap; 
+            position: relative; 
+            width: 100%;
+        }
+        .marquee-content { 
+            display: inline-block; 
+            animation: marquee 30s linear infinite; 
+            white-space: nowrap;
+            will-change: transform;
+        }
+        @keyframes marquee { 
+            0% { transform: translateX(100%); } 
+            100% { transform: translateX(-100%); } 
+        }
     </style>
 </head>
 <body class="h-screen flex flex-col overflow-hidden text-slate-800 bg-slate-50">
@@ -170,8 +183,9 @@
         </div>
     </header>
 
-    <!-- HABER BANDI (Marquee) -->
-    <div id="news-ticker" class="bg-blue-900 text-white text-[10px] font-bold py-1 overflow-hidden hidden relative z-30 border-b border-blue-800">
+    <!-- HABER BANDI (Marquee) - Responsive Text Size -->
+    <!-- text-xs (Mobile), sm:text-sm (Tablet), md:text-base (Laptop), lg:text-lg (Smartboard) -->
+    <div id="news-ticker" class="bg-blue-900 text-white text-xs sm:text-sm md:text-base lg:text-lg font-bold py-3 overflow-hidden hidden relative z-30 border-b border-blue-800 shadow-md">
         <div class="marquee-container">
             <div id="marquee-text" class="marquee-content px-4 flex gap-12 items-center">
                 <!-- JS ile dolar -->
